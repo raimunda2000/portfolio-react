@@ -1,81 +1,117 @@
 import React from "react";
 
-// Header
-function Header() {
-  return (
-    <header style={{background:"#111",color:"#fff",padding:"20px",textAlign:"center"}}>
-      <h1>Portfólio Profissional</h1>
-      <p>Auxiliar de Serviços Gerais</p>
-    </header>
-  );
-}
-
-// Sobre
-function Sobre() {
-  return (
-    <section style={{padding:"20px"}}>
-      <h2>Sobre a Profissional</h2>
-      <p>
-        Profissional com experiência em limpeza, organização e conservação de ambientes.
-        Atua com responsabilidade, pontualidade e dedicação, garantindo qualidade no serviço.
-      </p>
-    </section>
-  );
-}
-
-// Projetos / Experiências
-function Projetos() {
+export default function App() {
   const projetos = [
     {
-      nome: "Limpeza Profissional",
-      descricao: "Execução completa de limpeza e conservação de ambientes."
+      titulo: "Limpeza Profissional",
+      texto:
+        "Experiência em limpeza completa de ambientes, garantindo higiene, organização e bem-estar dos espaços de trabalho."
     },
     {
-      nome: "Organização de Espaços",
-      descricao: "Manutenção de ambientes limpos e organizados."
+      titulo: "Organização de Ambientes",
+      texto:
+        "Manutenção de ambientes limpos, organizados e funcionais para melhor produtividade."
     },
     {
-      nome: "Uso de Produtos",
-      descricao: "Aplicação correta de produtos de limpeza."
+      titulo: "Uso de Produtos de Limpeza",
+      texto:
+        "Aplicação correta e segura de produtos de limpeza em diferentes tipos de ambientes."
     },
     {
-      nome: "Trabalho em Equipe",
-      descricao: "Boa comunicação e colaboração com colegas."
+      titulo: "Compromisso e Pontualidade",
+      texto:
+        "Responsabilidade com horários, tarefas e entrega de serviços com qualidade."
     }
   ];
 
   return (
-    <section style={{padding:"20px"}}>
-      <h2>Experiências</h2>
-      <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit, minmax(250px,1fr))",gap:"15px"}}>
-        {projetos.map((p, index) => (
-          <div key={index} style={{background:"#fff",padding:"15px",borderRadius:"10px",boxShadow:"0 2px 8px rgba(0,0,0,0.1)"}}>
-            <h3>{p.nome}</h3>
-            <p>{p.descricao}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
+    <div style={styles.page}>
+      <header style={styles.header}>
+        <h1>PORTFÓLIO PROFISSIONAL</h1>
+        <p>Raimunda Maria Ribeiro dos Santos</p>
+        <span>Auxiliar de Serviços Gerais</span>
+      </header>
 
-// Footer
-function Footer() {
-  return (
-    <footer style={{background:"#111",color:"#fff",textAlign:"center",padding:"15px"}}>
-      <p>© 2026 - Portfólio Profissional</p>
-    </footer>
-  );
-}
+      <section style={styles.sobre}>
+        <h2>Sobre Mim</h2>
+        <p>
+          Profissional dedicada, responsável e comprometida com a organização,
+          limpeza e conservação de ambientes. Atua com disciplina, respeito e
+          qualidade em todas as atividades realizadas.
+        </p>
+      </section>
 
-// App principal
-export default function App() {
-  return (
-    <div style={{background:"#f4f6f9"}}>
-      <Header />
-      <Sobre />
-      <Projetos />
-      <Footer />
+      <section style={styles.projetos}>
+        <h2>Experiências Profissionais</h2>
+
+        <div style={styles.grid}>
+          {projetos.map((item, i) => (
+            <div key={i} style={styles.card} className="card">
+              <h3>{item.titulo}</h3>
+              <p>{item.texto}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <footer style={styles.footer}>
+        <p>© 2026 - Portfólio Profissional</p>
+      </footer>
+
+      <style>{`
+        .card {
+          transition: all 0.3s ease;
+        }
+
+        .card:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 18px 30px rgba(0,0,0,0.4);
+        }
+      `}</style>
     </div>
   );
-} 
+}
+
+const styles = {
+  page: {
+    fontFamily: "Arial",
+    background: "linear-gradient(135deg, #0f172a, #1e3c72)",
+    color: "white",
+    minHeight: "100vh",
+    margin: 0
+  },
+  header: {
+    textAlign: "center",
+    padding: "50px 20px",
+    borderBottom: "1px solid rgba(255,255,255,0.2)"
+  },
+  sobre: {
+    padding: "30px",
+    maxWidth: "800px",
+    margin: "auto",
+    textAlign: "center"
+  },
+  projetos: {
+    padding: "30px",
+    textAlign: "center"
+  },
+  grid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+    gap: "20px",
+    marginTop: "20px"
+  },
+  card: {
+    background: "white",
+    color: "#111",
+    padding: "20px",
+    borderRadius: "12px",
+    boxShadow: "0 10px 20px rgba(0,0,0,0.3)"
+  },
+  footer: {
+    textAlign: "center",
+    padding: "20px",
+    marginTop: "30px",
+    borderTop: "1px solid rgba(255,255,255,0.2)"
+  }
+};
