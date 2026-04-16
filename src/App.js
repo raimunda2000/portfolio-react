@@ -4,7 +4,7 @@ import React from "react";
 function Header() {
   return (
     <header style={{background:"#111",color:"#fff",padding:"20px",textAlign:"center"}}>
-      <h1>Portfólio Profissional</h1>
+      <h1>Portfólio Profissional 2026</h1>
       <p>Auxiliar de Serviços Gerais</p>
     </header>
   );
